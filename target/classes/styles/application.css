@@ -1,0 +1,216 @@
+/* Base styles for the entire application */
+.root {
+    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #111827;
+    -fx-text-fill:    #E5E7EB;
+}
+
+/* Text element styles */
+.label,
+.text {
+    -fx-text-fill: #E5E7EB;
+}
+
+/* Color theme definitions */
+.accent        { -fx-background-color: #3B82F6; }
+.accent-hover  { -fx-background-color: #2563EB; }
+.success       { -fx-background-color: #10B981; }
+.success-hover { -fx-background-color: #059669; }
+
+/* Elevation effects for depth */
+.elevation-1 { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 3); }
+.elevation-2 { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12, 0, 0, 4); }
+
+/* Button styles */
+.button {
+    -fx-background-radius: 8;
+    -fx-text-fill: #E5E7EB;
+    -fx-background-color: #1F2937;
+    -fx-border-color:   #374151;
+    -fx-border-width:   1;
+    -fx-padding:        8 16;
+    -fx-cursor:         hand;
+    -fx-font-weight:    600;
+    -fx-effect:         dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0, 0, 2);
+}
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 8, 0, 0, 3);
+}
+
+/* Button variants */
+.button-default {
+    -fx-background-color: #1F2937;
+    -fx-border-color:     #374151;
+}
+.button-primary {
+    -fx-background-color: #3B82F6;
+    -fx-text-fill:        #FFFFFF;
+}
+.button-primary:hover {
+    -fx-background-color: #2563EB;
+}
+.button-success {
+    -fx-background-color: #10B981;
+    -fx-text-fill:        #FFFFFF;
+}
+.button-success:hover {
+    -fx-background-color: #059669;
+}
+
+/* Form control styles */
+.text-field,
+.combo-box,
+.password-field {
+    -fx-background-color:    #1F2937;
+    -fx-background-radius:     6;
+    -fx-border-radius:         6;
+    -fx-border-color:         #374151;
+    -fx-border-width:         1;
+    -fx-text-fill:            #E5E7EB;
+    -fx-prompt-text-fill:     #9CA3AF;
+    -fx-padding:               6 10;
+}
+.text-field:focused,
+.combo-box:focused,
+.password-field:focused {
+    -fx-border-color:         #3B82F6;
+    -fx-focus-color:          transparent;
+}
+
+/* Card and panel styles */
+.card {
+    -fx-background-color:    #1F2937;
+    -fx-background-radius:     8;
+    -fx-border-radius:         8;
+    -fx-border-color:         #374151;
+    -fx-border-width:         1;
+    -fx-padding:              16;
+    -fx-effect:               dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+}
+.side-panel,
+.content-area,
+.control-panel {
+    -fx-background-color:    inherit;
+    -fx-background-radius:    inherit;
+    -fx-border-radius:        inherit;
+    -fx-border-color:         inherit;
+    -fx-border-width:         inherit;
+    -fx-padding:              inherit;
+    -fx-effect:               inherit;
+}
+
+/* Properties pane specific styles */
+.properties-pane {
+    -fx-background-color:    #1F2937;
+    -fx-background-radius:     8;
+    -fx-border-radius:         8;
+    -fx-border-color:         #374151;
+    -fx-border-width:         1;
+    -fx-padding:              16;
+    -fx-effect:               dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+    -fx-text-fill:            #FFFFFF;
+}
+.properties-pane * {
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Table view styles */
+.table-view {
+    -fx-background-color:           transparent;
+    -fx-table-cell-border-color:    transparent;
+    -fx-padding:                    0;
+}
+.table-view .column-header {
+    -fx-background-color: #374151;
+    -fx-text-fill:       #E5E7EB;
+    -fx-font-weight:      600;
+    -fx-padding:          6 8;
+}
+.table-row-cell {
+    -fx-background-color: #1F2937;
+    -fx-text-fill:        #E5E7EB;
+    -fx-cell-size:        36;
+}
+.table-row-cell:odd { -fx-background-color: #111827; }
+
+/* List view styles */
+.list-view .list-cell {
+    -fx-background-color: #1F2937;
+    -fx-text-fill:        #E5E7EB;
+    -fx-padding:          8 12;
+}
+.list-view .list-cell:odd { -fx-background-color: #111827; }
+.list-view .list-cell:selected {
+    -fx-background-color: #3B82F6;
+    -fx-text-fill:        #FFFFFF;
+}
+
+/* Tab pane styles */
+.tab-pane .tab-header-background {
+    -fx-background-color: #374151;
+}
+.tab-pane .tab {
+    -fx-background-color:    #1F2937;
+    -fx-background-radius:     6 6 0 0;
+    -fx-border-radius:         6 6 0 0;
+    -fx-border-color:         #374151;
+    -fx-border-width:         1 1 0 1;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: #3B82F6;
+}
+.tab-pane .tab-label {
+    -fx-text-fill: #E5E7EB;
+    -fx-font-weight: 600;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #FFFFFF;
+}
+.tab-pane .tab-content-area {
+    -fx-background-color: #1F2937;
+    -fx-border-color:     #374151;
+    -fx-border-width:     1;
+}
+
+/* Tooltip and context menu styles */
+.tooltip,
+.context-menu {
+    -fx-background-color:    #1F2937;
+    -fx-text-fill:           #E5E7EB;
+    -fx-background-radius:     6;
+    -fx-border-radius:         6;
+    -fx-border-color:        #374151;
+    -fx-border-width:        1;
+    -fx-padding:             8;
+    -fx-effect:              dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 4);
+}
+
+/* Header and help text styles */
+.label.header {
+    -fx-font-size:   18px;
+    -fx-font-weight: 700;
+    -fx-text-fill:   #E5E7EB;
+}
+
+.help-text {
+    -fx-font-size:   12px;
+    -fx-text-fill:   #9CA3AF;
+    -fx-font-style: italic;
+}
+
+/* Progress bar styles */
+.progress-bar > .track { -fx-background-color: #111827; -fx-background-radius: 4; }
+.progress-bar > .bar   { -fx-background-radius: 4; }
+.custom-progress-bar   { -fx-accent: #10B981; }
+
+/* Scroll pane and scroll bar styles */
+.scroll-pane            { -fx-background-color: transparent; }
+.scroll-bar {
+    -fx-background-color: #111827;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #3B82F6;
+    -fx-background-radius: 4;
+}
+.scroll-bar .thumb:hover { -fx-background-color: #2563EB; }

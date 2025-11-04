@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<!-- Main application window layout -->
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.imagemanager.controller.MainController"
+            prefHeight="700.0" prefWidth="1000.0"
+            styleClass="main-background">
+
+    <!-- Top toolbar containing main action buttons and status indicators -->
+    <top>
+        <VBox spacing="5">
+            <ToolBar styleClass="header-toolbar">
+                <Button fx:id="btnUpload" text="Upload Images" styleClass="button-primary"/>
+                <Separator orientation="VERTICAL" />
+                <Button fx:id="btnConvert" text="Convert &amp; Save" styleClass="button-success"/>
+                <Separator orientation="VERTICAL" />
+                <Label text="Status:" styleClass="status-label"/>
+                <Label fx:id="lblStatus" text="Ready" styleClass="status-value"/>
+                <Pane HBox.hgrow="ALWAYS" />
+                <ProgressBar fx:id="progressBar" prefWidth="150" visible="false" styleClass="custom-progress-bar"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <!-- Left panel containing the image thumbnails list -->
+    <left>
+        <VBox spacing="10" prefWidth="250" styleClass="side-panel">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Images" styleClass="header-label"/>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="thumbnail-pane">
+                <TilePane fx:id="pnlThumbnails" hgap="10" vgap="10" prefColumns="2" />
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- Center area containing the image preview -->
+    <center>
+        <VBox spacing="10" styleClass="content-area" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Preview" styleClass="header-label"/>
+
+            <ScrollPane fx:id="scrollPreview" VBox.vgrow="ALWAYS" styleClass="preview-pane"
+                        pannable="true" fitToWidth="true" fitToHeight="true">
+                <StackPane fx:id="previewContainer" alignment="CENTER" StackPane.alignment="CENTER">
+                    <ImageView fx:id="imgPreview" preserveRatio="true" smooth="true" />
+                </StackPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- Right panel containing tabs for properties, filters, and conversion options -->
+    <right>
+        <VBox spacing="10" prefWidth="350" styleClass="control-panel">
+            <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+                <!-- Properties tab showing image metadata -->
+                <Tab text="Properties" closable="false">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+
+                        <Label text="Image Properties" styleClass="header-label"/>
+
+                        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="properties-pane" VBox.vgrow="ALWAYS">
+                            <TableView fx:id="tblProperties" VBox.vgrow="ALWAYS" styleClass="properties-table" prefHeight="2000">
+                                <columns>
+                                    <TableColumn fx:id="colProperty" text="Property" prefWidth="100"/>
+                                    <TableColumn fx:id="colValue" text="Value" prefWidth="400"/>
+                                </columns>
+                            </TableView>
+                        </ScrollPane>
+                    </VBox>
+                </Tab>
+
+                <!-- Filters tab for applying image filters -->
+                <Tab text="Filters" closable="false">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+
+                        <Label text="Available Filters" styleClass="header-label"/>
+
+                        <ListView fx:id="lstFilters" VBox.vgrow="ALWAYS" styleClass="filters-list"/>
+
+                        <Label text="Select a filter to apply to the current image" wrapText="true" styleClass="help-text"/>
+                    </VBox>
+                </Tab>
+
+                <!-- Conversion tab for selecting target image formats -->
+                <Tab text="Conversion" closable="false">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+
+                        <Label text="Target Formats" styleClass="header-label"/>
+
+                        <ListView fx:id="lstFormats" VBox.vgrow="ALWAYS" styleClass="formats-list"/>
+
+                    </VBox>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </right>
+
+    <!-- Bottom footer with application name -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="footer">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+
+            <Label text="Image Management Tool" styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+
+    <!-- Link to the application's CSS stylesheet -->
+    <stylesheets>
+        <String fx:value="/styles/application.css"/>
+    </stylesheets>
+</BorderPane>
